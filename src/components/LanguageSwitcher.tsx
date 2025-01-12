@@ -1,19 +1,35 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
-export function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+const languages = [
+  { code: 'en', name: 'English' },
+  { code: 'es', name: 'Español' }
+];
+
+interface LanguageSwitcherProps {
+  language: string;
+  setLanguage: (language: string) => void;
+}
+
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ language, setLanguage }) => {
+  const handleChange = (event: { target: { value: any; }; }) => {
+    const selectedLanguage = event.target.value;
+    setLanguage(selectedLanguage);
+    i18next.changeLanguage(selectedLanguage);
+  };
 
   return (
-    <div className="fixed top-4 right-4 z-50">
-      <select
-        className="bg-white/80 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-md border border-gray-300"
-        value={i18n.language}
-        onChange={(e) => i18n.changeLanguage(e.target.value)}
-      >
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
+    <div className="absolute z-50 top-4 right-4 ">
+    <select value={language} onChange={handleChange} 
+            className="bg-white/80 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-md border border-gray-300"
+    >
+      {languages.map((lang) => (
+        <option key={lang.code} value={lang.code}>
+          {lang.name}
+        </option>
+      ))}
+    </select>
     </div>
   );
-}
+};
+

@@ -1,37 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hammer, Mail, Instagram, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
+
+import sagradaFamiliaImage from './assets/sagradaFamilia.jpeg';
+import sleepingCatsImage from './assets/sleepingCats.jpeg';
+import sirenSongImage from './assets/sirenSong.jpeg';
 
 const sculptures = [
   {
-    key: "bronzeHarmony",
-    image: "https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=1200"
+    key: "sagradaFamilia",
+    image: sagradaFamiliaImage
   },
   {
-    key: "marbleDreams",
-    image: "https://images.unsplash.com/photo-1605101943206-05c8f4e64598?auto=format&fit=crop&q=80&w=1200"
+    key: "sleepingCats",
+    image: sleepingCatsImage
   },
   {
-    key: "stoneWhispers",
-    image: "https://images.unsplash.com/photo-1561839561-b13bcfe95249?auto=format&fit=crop&q=80&w=1200"
+    key: "sirenSong",
+    image: sirenSongImage
   }
 ];
 
 function App() {
   const { t } = useTranslation();
+  const [language, setLanguage] = useState(i18next.language);
+
+  useEffect(() => {
+    i18next.changeLanguage(language);
+  }, [language]);
 
   return (
     <div className="min-h-screen bg-stone-50">
-      <LanguageSwitcher />
+      <LanguageSwitcher language={language} setLanguage={setLanguage} />
       
       {/* Hero Section */}
       <header className="relative h-screen">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-black/100">
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
-          <Hammer className="w-16 h-16 mb-6" />
           <h1 className="text-5xl md:text-7xl font-light mb-4">{t('hero.title')}</h1>
           <p className="text-xl md:text-2xl font-light tracking-wide">{t('hero.subtitle')}</p>
         </div>
@@ -74,17 +83,13 @@ function App() {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-light mb-8">{t('contact.title')}</h2>
           <div className="flex justify-center gap-8 text-gray-600">
-            <a href="mailto:contact@aranduayala.com" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
+            <a href="mailto:aranduayala@gmail.com" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
               <Mail className="w-5 h-5" />
               <span>{t('contact.email')}</span>
             </a>
-            <a href="#" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
+            <a href="https://www.instagram.com/aranduesculturas" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
               <Instagram className="w-5 h-5" />
               <span>{t('contact.instagram')}</span>
-            </a>
-            <a href="#" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
-              <Globe className="w-5 h-5" />
-              <span>{t('contact.website')}</span>
             </a>
           </div>
         </div>

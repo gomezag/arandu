@@ -1,26 +1,26 @@
 {
   "hero": {
     "title": "ARANDU AYALA",
-    "subtitle": "ESCULTOR CONTEMPORÁNEO"
+    "subtitle": "ESCULTOR"
   },
   "about": {
     "title": "SOBRE EL ARTISTA",
-    "description": "Con más de 15 años de experiencia en artes escultóricas, me especializo en crear piezas contemporáneas que combinan técnicas clásicas con estética moderna. Mi trabajo explora la relación entre forma y espacio, inspirándome en fenómenos naturales y emociones humanas."
+    "description": "De tradición artesana, exploro las formas en piedra y metal la expresión abstracta de la cultura paraguaya. Con base en Asunción, Paraguay, mi trabajo se centra en la escultura de pequeño y mediano formato, con piezas en piedras recolectadas localmente."
   },
   "portfolio": {
     "title": "OBRAS SELECCIONADAS",
     "sculptures": {
-      "bronzeHarmony": {
-        "title": "Armonía en Bronce",
-        "description": "Bronce, 2023"
+      "sagradaFamilia": {
+        "title": "Sagrada Familia",
+        "description": "Piedra Arenisca, 2024"
       },
-      "marbleDreams": {
-        "title": "Sueños en Mármol",
-        "description": "Mármol de Carrara, 2023"
+      "sleepingCats": {
+        "title": "Gatos durmiendo",
+        "description": "Piedra Arenisca, 2024"
       },
-      "stoneWhispers": {
-        "title": "Susurros en Piedra",
-        "description": "Piedra Caliza, 2022"
+      "sirenSong": {
+        "title": "El canto de la sirena",
+        "description": "Jade, 2024"
       }
     }
   },

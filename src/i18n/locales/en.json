@@ -1,26 +1,26 @@
 {
   "hero": {
     "title": "ARANDU AYALA",
-    "subtitle": "CONTEMPORARY SCULPTOR"
+    "subtitle": "SCULPTOR"
   },
   "about": {
     "title": "ABOUT THE ARTIST",
-    "description": "With over 15 years of experience in sculptural arts, I specialize in creating contemporary pieces that blend classical techniques with modern aesthetics. My work explores the relationship between form and space, drawing inspiration from natural phenomena and human emotion."
+    "description": "From a tradition of craftsmanship, I explore the abstract expression of Paraguayan culture in stone and metal. Based in Asunción, Paraguay, my work focuses on small and medium format sculpture, with pieces in locally sourced stones."
   },
   "portfolio": {
     "title": "SELECTED WORKS",
     "sculptures": {
-      "bronzeHarmony": {
-        "title": "Bronze Harmony",
-        "description": "Bronze, 2023"
+      "sagradaFamilia": {
+        "title": "Sagrada Familia",
+        "description": "Sandstone, 2024"
       },
-      "marbleDreams": {
-        "title": "Marble Dreams",
-        "description": "Carrara Marble, 2023"
+      "sleepingCats": {
+        "title": "Sleeping cats",
+        "description": "Sandstone, 2024"
       },
-      "stoneWhispers": {
-        "title": "Stone Whispers",
-        "description": "Limestone, 2022"
+      "sirenSong": {
+        "title": "The siren's song",
+        "description": "Jade, 2024"
       }
     }
   },
