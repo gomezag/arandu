@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "ARANDU AYALA",
+    "subtitle": "ESCULTOR CONTEMPORÁNEO"
+  },
+  "about": {
+    "title": "SOBRE EL ARTISTA",
+    "description": "Con más de 15 años de experiencia en artes escultóricas, me especializo en crear piezas contemporáneas que combinan técnicas clásicas con estética moderna. Mi trabajo explora la relación entre forma y espacio, inspirándome en fenómenos naturales y emociones humanas."
+  },
+  "portfolio": {
+    "title": "OBRAS SELECCIONADAS",
+    "sculptures": {
+      "bronzeHarmony": {
+        "title": "Armonía en Bronce",
+        "description": "Bronce, 2023"
+      },
+      "marbleDreams": {
+        "title": "Sueños en Mármol",
+        "description": "Mármol de Carrara, 2023"
+      },
+      "stoneWhispers": {
+        "title": "Susurros en Piedra",
+        "description": "Piedra Caliza, 2022"
+      }
+    }
+  },
+  "contact": {
+    "title": "CONTACTO",
+    "email": "Correo",
+    "instagram": "Instagram",
+    "website": "Sitio Web"
+  },
+  "footer": {
+    "copyright": "© {{year}} Arandu Ayala. Todos los derechos reservados."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "ARANDU AYALA",
+    "subtitle": "CONTEMPORARY SCULPTOR"
+  },
+  "about": {
+    "title": "ABOUT THE ARTIST",
+    "description": "With over 15 years of experience in sculptural arts, I specialize in creating contemporary pieces that blend classical techniques with modern aesthetics. My work explores the relationship between form and space, drawing inspiration from natural phenomena and human emotion."
+  },
+  "portfolio": {
+    "title": "SELECTED WORKS",
+    "sculptures": {
+      "bronzeHarmony": {
+        "title": "Bronze Harmony",
+        "description": "Bronze, 2023"
+      },
+      "marbleDreams": {
+        "title": "Marble Dreams",
+        "description": "Carrara Marble, 2023"
+      },
+      "stoneWhispers": {
+        "title": "Stone Whispers",
+        "description": "Limestone, 2022"
+      }
+    }
+  },
+  "contact": {
+    "title": "GET IN TOUCH",
+    "email": "Email",
+    "instagram": "Instagram",
+    "website": "Website"
+  },
+  "footer": {
+    "copyright": "© {{year}} Arandu Ayala. All rights reserved."
+  }
+}
