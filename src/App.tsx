@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Hammer, Mail, Instagram, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
@@ -33,6 +34,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <Helmet>
+        <title>Arandu Ayala - Escultor</title>
+      </Helmet>
       <LanguageSwitcher language={language} setLanguage={setLanguage} />
       
       {/* Hero Section */}
