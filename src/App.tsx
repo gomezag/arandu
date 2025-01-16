@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { Hammer, Mail, Instagram, Globe } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { siInstagram } from 'simple-icons';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
@@ -87,12 +88,12 @@ function App() {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-light mb-8">{t('contact.title')}</h2>
           <div className="flex justify-center gap-8 text-gray-600">
-            <a href="mailto:aranduayala@gmail.com" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
+          <a href="mailto:aranduayalahornung@gmail.com" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
               <Mail className="w-5 h-5" />
               <span>{t('contact.email')}</span>
             </a>
             <a href="https://www.instagram.com/aranduesculturas" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
-              <Instagram className="w-5 h-5" />
+              <img src={`data:image/svg+xml;utf8,${encodeURIComponent(siInstagram.svg)}`} alt="Instagram" className="w-5 h-5" />
               <span>{t('contact.instagram')}</span>
             </a>
           </div>
