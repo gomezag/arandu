@@ -10,6 +10,9 @@ import ModalImage from './components/ModalImage';
 import sagradaFamiliaImage from './assets/sagradaFamilia.jpeg';
 import sleepingCatsImage from './assets/sleepingCats.jpeg';
 import sirenSongImage from './assets/sirenSong.jpeg';
+import mujer from './assets/mujer.jpeg';
+import peregrinaje from './assets/peregrinaje.jpeg';
+import pesebre from './assets/pesebre.jpeg';
 
 const sculptures = [
   {
@@ -19,6 +22,18 @@ const sculptures = [
   {
     key: "sleepingCats",
     image: sleepingCatsImage
+  },
+  {
+    key: "peregrinaje",
+    image: peregrinaje
+  },
+  {
+    key: "mujer",
+    image: mujer
+  },
+  {
+    key: "pesebre",
+    image: pesebre
   },
   {
     key: "sirenSong",

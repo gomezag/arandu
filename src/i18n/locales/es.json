@@ -18,6 +18,18 @@
         "title": "La dormisión",
         "description": "Piedra Arenisca, 2024"
       },
+      "peregrinaje": {
+        "title": "Peregrinaje",
+        "description": "Piedra Arenisca, 2024"
+      },
+      "mujer": {
+        "title": "Mujer",
+        "description": "Piedra Arenisca, 2024"
+      },
+      "pesebre": {
+        "title": "Pesebre",
+        "description": "Piedra Arenisca, 2024"
+      },
       "sirenSong": {
         "title": "El canto de la sirena",
         "description": "Jade, 2024"
