@@ -92,7 +92,7 @@ function App() {
               <Mail className="w-5 h-5" />
               <span>{t('contact.email')}</span>
             </a>
-            <a href="https://www.instagram.com/aranduesculturas" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
+            <a href="https://www.instagram.com/aranduescultura" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
               <img src={`data:image/svg+xml;utf8,${encodeURIComponent(siInstagram.svg)}`} alt="Instagram" className="w-5 h-5" />
               <span>{t('contact.instagram')}</span>
             </a>
