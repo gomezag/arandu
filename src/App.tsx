@@ -5,6 +5,7 @@ import { siInstagram } from 'simple-icons';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
+import ModalImage from './components/ModalImage';
 
 import sagradaFamiliaImage from './assets/sagradaFamilia.jpeg';
 import sleepingCatsImage from './assets/sleepingCats.jpeg';
@@ -67,10 +68,9 @@ function App() {
             {sculptures.map((sculpture) => (
               <div key={sculpture.key} className="group relative">
                 <div className="aspect-[3/4] overflow-hidden">
-                  <img 
+                  <ModalImage 
                     src={sculpture.image} 
                     alt={t(`portfolio.sculptures.${sculpture.key}.title`)}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="mt-4">
