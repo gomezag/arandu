@@ -25,7 +25,7 @@ const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth, standa
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
         />
       </div>
 
