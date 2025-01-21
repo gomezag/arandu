@@ -5,41 +5,9 @@ import { siInstagram } from 'simple-icons';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
-import ModalImage from './components/ModalImage';
+import PortfolioGrid from './components/PortfolioGrid';
 
-import sagradaFamiliaImage from './assets/sagradaFamilia.jpeg';
-import sleepingCatsImage from './assets/sleepingCats.jpeg';
-import sirenSongImage from './assets/sirenSong.jpeg';
-import mujer from './assets/mujer.jpeg';
-import peregrinaje from './assets/peregrinaje.jpeg';
-import pesebre from './assets/pesebre.jpeg';
-
-const sculptures = [
-  {
-    key: "sagradaFamilia",
-    image: sagradaFamiliaImage
-  },
-  {
-    key: "sleepingCats",
-    image: sleepingCatsImage
-  },
-  {
-    key: "peregrinaje",
-    image: peregrinaje
-  },
-  {
-    key: "mujer",
-    image: mujer
-  },
-  {
-    key: "pesebre",
-    image: pesebre
-  },
-  {
-    key: "sirenSong",
-    image: sirenSongImage
-  }
-];
+import sculptures from './sculptures';
 
 function App() {
   const { t } = useTranslation();
@@ -76,27 +44,7 @@ function App() {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-light mb-12 text-center">{t('portfolio.title')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sculptures.map((sculpture) => (
-              <div key={sculpture.key} className="group relative">
-                <div className="aspect-[3/4] overflow-hidden">
-                  <ModalImage 
-                    src={sculpture.image} 
-                    alt={t(`portfolio.sculptures.${sculpture.key}.title`)}
-                  />
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-xl font-light">{t(`portfolio.sculptures.${sculpture.key}.title`)}</h3>
-                  <p className="text-gray-600">{t(`portfolio.sculptures.${sculpture.key}.description`)}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PortfolioGrid sculptures={sculptures} />
 
       {/* Contact Section */}
       <section className="py-20 px-4 md:px-8 bg-stone-100">

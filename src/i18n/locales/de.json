@@ -1,0 +1,50 @@
+{
+    "hero": {
+      "title": "ARANDU AYALA",
+      "subtitle": "BILDHAUER"
+    },
+    "about": {
+      "title": "ÜBER DEN KÜNSTLER",
+      "description": "Aus einer Tradition des Handwerks erforsche ich den Ausdruck der paraguayischen Kultur in Stein und Metall. Mit Sitz in Asunción, Paraguay, konzentriert sich meine Arbeit auf Skulpturen im kleinen und mittleren Format, mit Stücken aus lokal gewonnenen Steinen."
+    },
+    "portfolio": {
+      "title": "AUSGEWÄHLTE WERKE",
+      "previous": "Vorherige",
+      "next": "Nächste",
+      "sculptures": {
+        "sagradaFamilia": {
+          "title": "Mutter von zwei",
+          "description": "Sandstein, 2024"
+        },
+        "sleepingCats": {
+          "title": "Die Schläfrigkeit",
+          "description": "Sandstein, 2024"
+        },
+        "peregrinaje": {
+          "title": "Vaterschaft",
+          "description": "Sandstein, 2024"
+        },
+        "mujer": {
+          "title": "Oneirisch",
+          "description": "Carrara-Marmor, 2024"
+        },
+        "pesebre": {
+          "title": "Krippenszene",
+          "description": "Sandstein, 2024"
+        },
+        "sirenSong": {
+          "title": "Das Lied der Sirene",
+          "description": "Blauer Onyx, 2024"
+        }
+      }
+    },
+    "contact": {
+      "title": "KONTAKTIEREN SIE UNS",
+      "email": "E-Mail",
+      "instagram": "Instagram",
+      "website": "Webseite"
+    },
+    "footer": {
+      "copyright": "© {{year}} Arandu Ayala. Alle Rechte vorbehalten."
+    }
+  }

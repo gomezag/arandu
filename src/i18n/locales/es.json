@@ -9,6 +9,8 @@
   },
   "portfolio": {
     "title": "OBRAS SELECCIONADAS",
+    "previous": "Anterior",
+    "next": "Siguiente",
     "sculptures": {
       "sagradaFamilia": {
         "title": "Madre de dos",

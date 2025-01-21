@@ -2,8 +2,9 @@ import React from 'react';
 import i18next from 'i18next';
 
 const languages = [
+  { code: 'es', name: 'Español' },
   { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' }
+  { code: 'de', name: 'Deutsch' }
 ];
 
 interface LanguageSwitcherProps {
