@@ -8,7 +8,7 @@ interface ModalImageProps {
   standardHeight?: string;
 }
 
-const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth, standardHeight }) => {
+const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth = '100%', standardHeight = 'auto' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -55,11 +55,6 @@ ModalImage.propTypes = {
   alt: PropTypes.string.isRequired,
   standardWidth: PropTypes.string,
   standardHeight: PropTypes.string,
-};
-
-ModalImage.defaultProps = {
-  standardWidth: '100%',
-  standardHeight: 'auto',
 };
 
 export default ModalImage;
