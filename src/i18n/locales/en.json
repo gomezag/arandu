@@ -12,19 +12,23 @@
     "previous": "Previous",
     "next": "Next",
     "sculptures": {
-      "sagradaFamilia": {
+      "equilibrio": {
+        "title": "In balance",
+        "description": "White, pink, and yellow sandstone, 2024"
+      },
+      "madreDeDos": {
         "title": "Mother of two",
         "description": "Sandstone, 2024"
       },
-      "sleepingCats": {
+      "dormision": {
         "title": "The sleepiness",
         "description": "Sandstone, 2024"
       },
-      "peregrinaje": {
+      "paternidad": {
         "title": "Fatherhood",
         "description": "Sandstone, 2024"
       },
-      "mujer": {
+      "onirica": {
         "title": "Oneiric",
         "description": "Carrara marble, 2024"
       },
@@ -32,11 +36,20 @@
         "title": "Nativity scene",
         "description": "Sandstone, 2024"
       },
-      "sirenSong": {
+      "sirena": {
         "title": "The siren's song",
         "description": "Blue onyx, 2024"
       }
     }
+  },
+  "contactForm": {
+    "title": "REQUEST A QUOTE",
+    "name": "Name",
+    "contact": "Email or Contact Phone",
+    "sculpture": "Sculpture",
+    "message": "Message",
+    "send": "Send",
+    "other": "Other"
   },
   "contact": {
     "title": "GET IN TOUCH",

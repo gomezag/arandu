@@ -12,19 +12,23 @@
     "previous": "Anterior",
     "next": "Siguiente",
     "sculptures": {
-      "sagradaFamilia": {
+      "equilibrio": {
+        "title": "En Equilibrio",
+        "description": "Arenisca blanca, rosada y amarilla, 2024"
+      },
+      "madreDeDos": {
         "title": "Madre de dos",
         "description": "Piedra Arenisca, 2024"
       },
-      "sleepingCats": {
+      "dormision": {
         "title": "La dormisión",
         "description": "Piedra Arenisca, 2024"
       },
-      "peregrinaje": {
+      "paternidad": {
         "title": "Paternidad",
         "description": "Piedra Arenisca, 2024"
       },
-      "mujer": {
+      "onirica": {
         "title": "Onírica",
         "description": "Mármol de carrara, 2024"
       },
@@ -32,11 +36,20 @@
         "title": "Pesebre",
         "description": "Piedra Arenisca, 2024"
       },
-      "sirenSong": {
+      "sirena": {
         "title": "El canto de la sirena",
         "description": "Ónix azul, 2024"
       }
     }
+  },
+  "contactForm": {
+    "title": "SOLICITA UN PRESUPUESTO",
+    "name": "Nombre",
+    "contact": "Correo o Teléfono de contacto",
+    "sculpture": "Escultura",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "other": "Otro"
   },
   "contact": {
     "title": "CONTACTO",

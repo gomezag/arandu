@@ -1,9 +1,11 @@
-import sagradaFamiliaImage from './assets/sagradaFamilia.jpeg';
-import sleepingCatsImage from './assets/sleepingCats.jpeg';
-import sirenSongImage from './assets/sirenSong.jpeg';
-import mujer from './assets/mujer.jpeg';
-import peregrinaje from './assets/peregrinaje.jpeg';
+import madreDeDos from './assets/madreDeDos.jpeg';
+import dormision from './assets/dormision.jpeg';
+import sirena from './assets/sirena.jpeg';
+import onirica from './assets/onirica.jpeg';
+import paternidad from './assets/paternidad.jpeg';
 import pesebre from './assets/pesebre.jpeg';
+import equilibrio from './assets/enEquilibrio.jpeg'
+
 
 interface Sculpture {
   key: string;
@@ -13,23 +15,28 @@ interface Sculpture {
 
 const sculptures: Sculpture[] = [
   {
-    key: "sagradaFamilia",
-    image: sagradaFamiliaImage,
+      key: "equilibrio",
+      image: equilibrio,
+      size: ""
+  },
+  {
+    key: "madreDeDos",
+    image: madreDeDos,
     size: "15x25x37 cm"
   },
   {
-    key: "sleepingCats",
-    image: sleepingCatsImage,
+    key: "dormision",
+    image: dormision,
     size: ""
   },
   {
-    key: "peregrinaje",
-    image: peregrinaje,
+    key: "paternidad",
+    image: paternidad,
     size: ""
   },
   {
-    key: "mujer",
-    image: mujer,
+    key: "onirica",
+    image: onirica,
     size: ""
   },
   {
@@ -38,10 +45,10 @@ const sculptures: Sculpture[] = [
     size: ""
   },
   {
-    key: "sirenSong",
-    image: sirenSongImage,
+    key: "sirena",
+    image: sirena,
     size: ""
-  }
+  },
 ];
 
 export default sculptures;

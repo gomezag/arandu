@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import PortfolioGrid from './components/PortfolioGrid';
+import ContactForm from './components/ContactForm';
 import sculptures from './sculptures';
 
 function App() {
@@ -44,8 +45,18 @@ function App() {
         </section>
 
         {/* Portfolio Grid */}
-        <PortfolioGrid sculptures={sculptures} />
-
+        <section className="py-20 bg-white"> {/* bg-white bg-stone-100 */}
+          <PortfolioGrid sculptures={sculptures} />
+        </section>
+        
+        {/* Contact Form Section 
+        <section className="py-20 px-4 md:px-8 bg-white">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-3xl font-light mb-8">{t('contactForm.title')}</h2>
+            <ContactForm />
+          </div>
+        </section>
+        */}
         {/* Contact Section */}
         <section className="py-20 px-4 md:px-8 bg-stone-100">
           <div className="max-w-6xl mx-auto text-center">
@@ -64,7 +75,7 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="py-6 text-center text-gray-600 text-sm">
+        <footer className="py-6 text-center text-gray-600 text-sm bg-white">
           <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
         </footer>
       </div>
