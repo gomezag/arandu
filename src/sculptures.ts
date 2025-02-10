@@ -12,48 +12,66 @@ interface Sculpture {
   key: string;
   image: string;
   size: string;
+  hero: boolean;
+  background: string;
 }
 
 const sculptures: Sculpture[] = [
     {
         key: "equilibrio",
         image: equilibrio,
-        size: ""
+        size: "",
+        hero: false,
+        background: "bg-stone-100"
     },
     {
         key: "kitsune",
         image: kitsune,
-        size: ""
+        size: "",
+        hero: false,
+        background: "bg-stone-100"
     },
     {
         key: "madreDeDos",
         image: madreDeDos,
-        size: "15x25x37 cm"
+        size: "15x25x37 cm",
+        hero: true,
+        background: "bg-stone-100"
     },
     {
         key: "dormision",
         image: dormision,
-        size: ""
+        size: "",
+        hero: true,
+        background: "bg-stone-100"
     },
     {
         key: "paternidad",
         image: paternidad,
-        size: ""
+        size: "",
+        hero: false,
+        background: "bg-white"
     },
     {
         key: "onirica",
         image: onirica,
-        size: ""
+        size: "",
+        hero: false,
+        background: "bg-black"
     },
     {
         key: "pesebre",
         image: pesebre,
-        size: ""
+        size: "",
+        hero: true,
+        background: "bg-black"
     },
     {
         key: "sirena",
         image: sirena,
-        size: ""
+        size: "",
+        hero: false,
+        background: "bg-black"
     },
 ];
 
