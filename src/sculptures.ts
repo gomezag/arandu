@@ -28,7 +28,7 @@ const sculptures: Sculpture[] = [
         key: "kitsune",
         image: kitsune,
         size: "",
-        hero: false,
+        hero: true,
         background: "bg-stone-100"
     },
     {
@@ -63,7 +63,7 @@ const sculptures: Sculpture[] = [
         key: "pesebre",
         image: pesebre,
         size: "",
-        hero: true,
+        hero: false,
         background: "bg-black"
     },
     {
