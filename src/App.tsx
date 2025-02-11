@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { Mail } from 'lucide-react';
-import { siInstagram } from 'simple-icons';
+import { siInstagram, siWhatsapp } from 'simple-icons';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Hero from './components/Hero';
@@ -56,11 +56,12 @@ function App() {
             <div className="flex justify-center gap-8 text-gray-600">
               <a href="mailto:aranduayalahornung@gmail.com" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
                 <Mail className="w-5 h-5" />
-                <span>{t('contact.email')}</span>
               </a>
               <a href="https://www.instagram.com/aranduesculturas" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
                 <img src={`data:image/svg+xml;utf8,${encodeURIComponent(siInstagram.svg)}`} alt="Instagram" className="w-5 h-5" />
-                <span>{t('contact.instagram')}</span>
+              </a>
+              <a href="https://wa.me/595986560210" className="flex items-center gap-2 hover:text-gray-900 transition-colors">
+                  <img src={`data:image/svg+xml;utf8,${encodeURIComponent(siWhatsapp.svg)}`} alt="WhatsApp" className="w-5 h-5" />
               </a>
             </div>
           </div>
