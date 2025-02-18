@@ -7,6 +7,25 @@
     "title": "SOBRE EL ARTISTA",
     "description": "De tradición artesana, exploro en piedra y en metal la expresión abstracta de la cultura paraguaya. Con base en Asunción, Paraguay, mi trabajo se centra en la escultura de pequeño y mediano formato, con piezas en piedras recolectadas localmente."
   },
+  "upload":{
+    "title": "Subir Archivo",
+    "sculptureId": "Id",
+    "description": "Descripción",
+    "image": "Imagen",
+    "upload": "Subir",
+    "clear": "Limpiar",
+    "uploading": "Subiendo",
+    "uploaded": "Subido",
+    "error": "Error al subir el archivo"
+  },
+  "login": {
+    "title": "Iniciar Sesión",
+    "password": "Contraseña",
+    "login": "Iniciar Sesión",
+    "error": "Error al iniciar sesión",
+    "close": "Cerrar",
+    "success": "Sesión iniciada con éxito"
+  },
   "portfolio": {
     "title": "OBRAS SELECCIONADAS",
     "previous": "Anterior",

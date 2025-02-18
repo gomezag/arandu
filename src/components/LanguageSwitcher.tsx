@@ -34,3 +34,4 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ language, se
   );
 };
 
+export default LanguageSwitcher;

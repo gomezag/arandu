@@ -7,6 +7,25 @@
       "title": "ÜBER DEN KÜNSTLER",
       "description": "Aus einer Tradition des Handwerks erforsche ich den Ausdruck der paraguayischen Kultur in Stein und Metall. Mit Sitz in Asunción, Paraguay, konzentriert sich meine Arbeit auf Skulpturen im kleinen und mittleren Format, mit Stücken aus lokal gewonnenen Steinen."
     },
+    "upload":{
+      "title": "Datei hochladen",
+      "sculptureId": "Id",
+      "description": "Beschreibung",
+      "image": "Bild",
+      "upload": "Hochladen",
+      "clear": "Löschen",
+      "uploading": "Hochladen",
+      "uploaded": "Hochgeladen",
+      "error": "Fehler beim Hochladen der Datei"
+    },
+    "login": {
+      "title": "Anmelden",
+      "password": "Passwort",
+      "login": "Anmelden",
+      "error": "Fehler beim Anmelden",
+      "close": "Schließen",
+      "success": "Erfolgreich angemeldet"
+    },
     "portfolio": {
       "title": "AUSGEWÄHLTE WERKE",
       "previous": "Vorherige",

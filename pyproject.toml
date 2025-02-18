@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sculpture_database"
+version = "0.1.0"
+description = "A module to manage sculpture data in S3"
+authors = [
+    { name = "Agustin", email = "agustin@example.com" }
+]
+dependencies = [
+    "boto3"
+]
+
+[tool.setuptools.packages.find]
+where = ["backend"]

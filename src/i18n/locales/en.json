@@ -7,6 +7,25 @@
     "title": "ABOUT THE ARTIST",
     "description": "From a tradition of craftsmanship, I explore the expression of Paraguayan culture in stone and metal. Based in Asunción, Paraguay, my work focuses on small and medium format sculpture, with pieces in locally sourced stones."
   },
+  "upload": {
+    "title": "Upload File",
+    "sculptureId": "Id",
+    "description": "Description",
+    "image": "Image",
+    "upload": "Upload",
+    "clear": "Clear",
+    "uploading": "Uploading",
+    "uploaded": "Uploaded",
+    "error": "Error uploading file"
+  },
+  "login": {
+    "title": "Log In",
+    "password": "Password",
+    "login": "Log In",
+    "error": "Error logging in",
+    "close": "Close",
+    "success": "Logged in successfully"
+  },
   "portfolio": {
     "title": "SELECTED WORKS",
     "previous": "Previous",
