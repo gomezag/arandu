@@ -1,7 +1,15 @@
 {
+    "nav": {
+      "home": "Startseite",
+      "about": "Über den Künstler",
+      "portfolio": "Werke",
+      "news": "Nachrichten",
+      "contact": "Kontakt"
+    },
     "hero": {
       "title": "ARANDU AYALA",
-      "subtitle": "BILDHAUER"
+      "subtitle": "BILDHAUER",
+      "works": "Ausgewählte Werke"
     },
     "about": {
       "title": "ÜBER DEN KÜNSTLER",
@@ -27,7 +35,7 @@
       "success": "Erfolgreich angemeldet"
     },
     "portfolio": {
-      "title": "AUSGEWÄHLTE WERKE",
+      "title": "WERKE",
       "previous": "Vorherige",
       "next": "Nächste",
       "sculptures": {

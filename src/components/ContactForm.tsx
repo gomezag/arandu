@@ -17,7 +17,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded">
+    <form onSubmit={handleSubmit} className="mt-8 max-w-4xl mx-auto p-4 bg-white shadow-md rounded">
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
           {t('contactForm.name')}

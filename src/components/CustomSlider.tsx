@@ -17,7 +17,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ images, interval = 5000 }) 
   }, [images.length, interval]);
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden z-0">
       {images.map((image, index) => (
         <div
           key={index}

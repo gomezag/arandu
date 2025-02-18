@@ -1,5 +1,8 @@
 {
     "rewrites":  [
-      {"source": "/admin", "destination": "/"}
+      {"source": "/admin", "destination": "/"},
+      {"source": "/about", "destination": "/"},
+      {"source": "/portfolio", "destination": "/"},
+      {"source": "/contact", "destination": "/"}
     ]
 }

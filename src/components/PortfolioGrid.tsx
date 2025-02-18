@@ -44,7 +44,6 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({ sculptures }) => {
 
   return (
       <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 className="text-3xl font-light mb-12 text-center">{t('portfolio.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedSculptures.map((sculpture, index) => {
             if (index === displayedSculptures.length - 1) {
@@ -67,7 +66,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({ sculptures }) => {
                 <div key={sculpture.key} className="group relative">
                   <div className="aspect-[3/4] overflow-hidden">
                     <ModalImage 
-                      src={sculpture.image} 
+                      src={sculpture.image}
                       alt={t(`portfolio.sculptures.${sculpture.key}.title`)}
                     />
                   </div>

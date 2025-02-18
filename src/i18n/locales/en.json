@@ -1,7 +1,15 @@
 {
+  "nav": {
+    "home": "Home",
+    "about": "About the artist",
+    "portfolio": "Works",
+    "news": "News",
+    "contact": "Contact"
+  },
   "hero": {
     "title": "ARANDU AYALA",
-    "subtitle": "SCULPTOR"
+    "subtitle": "SCULPTOR",
+    "works": "Selected Works"
   },
   "about": {
     "title": "ABOUT THE ARTIST",
@@ -27,7 +35,7 @@
     "success": "Logged in successfully"
   },
   "portfolio": {
-    "title": "SELECTED WORKS",
+    "title": "WORKS",
     "previous": "Previous",
     "next": "Next",
     "sculptures": {
@@ -78,7 +86,8 @@
     "title": "GET IN TOUCH",
     "email": "Email",
     "instagram": "Instagram",
-    "website": "Website"
+    "website": "Website",
+    "description": "For inquiries, please contact me through the form or by email."
   },
   "footer": {
     "copyright": "© {{year}} Arandu Ayala. All rights reserved."

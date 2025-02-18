@@ -1,5 +1,6 @@
 import React from 'react';
 import i18next from 'i18next';
+import { FaGlobe } from 'react-icons/fa';
 
 const languages = [
   { code: 'es', name: 'Español' },
@@ -20,16 +21,19 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ language, se
   };
 
   return (
-    <div className="absolute z-50 top-4 right-4 ">
-    <select value={language} onChange={handleChange} 
-            className="bg-white/80 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-md border border-gray-300"
-    >
-      {languages.map((lang) => (
-        <option key={lang.code} value={lang.code}>
-          {lang.name}
-        </option>
-      ))}
-    </select>
+    <div className="flex items-center space-x-2">
+      <FaGlobe className="text-gray-800" /> 
+      <select
+        value={language}
+        onChange={handleChange}
+        className="bg-white/80 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-md border border-gray-300"
+      >
+        {languages.map((lang) => (
+          <option key={lang.code} value={lang.code}>
+            {lang.name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

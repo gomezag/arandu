@@ -26,6 +26,7 @@ const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth = '100%
           src={src}
           alt={alt}
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
         />
       </div>
 
@@ -42,7 +43,8 @@ const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth = '100%
             >
               &times;
             </button>
-            <img src={src} alt={alt} className="max-w-[80vw] max-h-[80vh] w-full h-auto object-contain" />
+            <img src={src} alt={alt} className="max-w-[80vw] max-h-[80vh] w-full h-auto object-contain" 
+            loading="lazy" />
           </div>
         </div>
       )}
