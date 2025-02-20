@@ -21,7 +21,7 @@ const Layout = ({ children, background }: LayoutProps) => {
         className={ background ? 'min-h-screen flex flex-col bg-fixed bg-center bg-cover' : ' min-h-screen flex flex-col bg-stone-0' }
         style={background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover' } : {}}
       >
-      <div className="absolute top-0 right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
+      <div className="fixed top-0 right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
         <BurgerMenu />
       </div>
       <div className="flex-grow relative z-10">

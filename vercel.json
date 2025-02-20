@@ -3,6 +3,7 @@
       {"source": "/admin", "destination": "/"},
       {"source": "/about", "destination": "/"},
       {"source": "/portfolio", "destination": "/"},
-      {"source": "/contact", "destination": "/"}
+      {"source": "/contact", "destination": "/"},
+      {"source": "/api/(.*)", "destination": "http://localhost:8000/api/$1"}
     ]
 }

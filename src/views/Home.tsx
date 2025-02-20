@@ -2,7 +2,7 @@ import { siInstagram, siWhatsapp, siGmail } from 'simple-icons';
 import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
-import PortfolioGrid from '../components/PortfolioGrid';
+import PortfolioCarousel from '../components/PortfolioCarousel';
 import sculptures from '../sculptures';
 
 const Home = () => {
@@ -15,10 +15,12 @@ const Home = () => {
       {/* Hero Section */}
       <Hero />
       <div className="relative z-10 mt-screen">
-      <section className="py-20 px-4 md:px-8 bg-white bg-opacity-75 rounded-md max-w-6xl mx-auto mt-8 mb-5">
+      {/* <section className="max-h-30 py-20 px-4 md:px-8 bg-white bg-opacity-75 rounded-mt max-w-6xl mx-auto mb-0 mt-8 mb-5">
           <h2 className="text-3xl font-light mb-12 text-center">{t('hero.works')}</h2>
-          <PortfolioGrid sculptures={heroSculptures} />
-      </section>
+
+          <PortfolioCarousel sculptures={heroSculptures} />
+
+      </section> */}
       {/* Content Section */}
         {/* Contact Section */}
         <section className="py-20 px-4 md:px-8 bg-stone-100">

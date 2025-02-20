@@ -70,7 +70,7 @@ const BurgerMenu: React.FC = () => {
               {t('nav.about')}
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href="/contact"
               className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -78,7 +78,7 @@ const BurgerMenu: React.FC = () => {
             >
               {t('nav.contact')}
             </a>
-          </li>
+          </li> */}
           <li>
             <div className="px-4 py-2">
               <LanguageSwitcher language={language} setLanguage={setLanguage} />
