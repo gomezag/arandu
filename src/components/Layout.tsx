@@ -1,7 +1,5 @@
-import { ReactNode, useState, useEffect } from 'react';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import { ReactNode } from 'react';
 import BurgerMenu from './BurgerMenu';
-import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 interface LayoutProps {
@@ -10,11 +8,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, background }: LayoutProps) => {
-  const [language, setLanguage] = useState(i18next.language);
   const { t } = useTranslation();
-  useEffect(() => {
-    i18next.changeLanguage(language);
-  }, [language]);
 
   return (
       <div

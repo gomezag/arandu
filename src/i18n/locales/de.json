@@ -16,7 +16,8 @@
       "description": "Aus einer Tradition des Handwerks erforsche ich den Ausdruck der paraguayischen Kultur in Stein und Metall. Mit Sitz in Asunción, Paraguay, konzentriert sich meine Arbeit auf Skulpturen im kleinen und mittleren Format, mit Stücken aus lokal gewonnenen Steinen."
     },
     "upload":{
-      "title": "Datei hochladen",
+      "header": "Datei hochladen",
+      "title": "Title",
       "sculptureId": "Id",
       "description": "Beschreibung",
       "image": "Bild",
@@ -37,41 +38,7 @@
     "portfolio": {
       "title": "WERKE",
       "previous": "Vorherige",
-      "next": "Nächste",
-      "sculptures": {
-        "equilibrio": {
-          "title": "Im Gleichgewicht",
-          "description": "Weißer, rosa und gelber Sandstein, 2024"
-        },
-        "madreDeDos": {
-          "title": "Mutter von zwei",
-          "description": "Sandstein, 2024"
-        },
-        "dormision": {
-          "title": "Die Schläfrigkeit",
-          "description": "Sandstein, 2024"
-        },
-        "paternidad": {
-          "title": "Vaterschaft",
-          "description": "Sandstein, 2024"
-        },
-        "onirica": {
-          "title": "Oneirisch",
-          "description": "Carrara-Marmor, 2024"
-        },
-        "pesebre": {
-          "title": "Krippenszene",
-          "description": "Sandstein, 2024"
-        },
-        "sirena": {
-          "title": "Sirène",
-          "description": "Blauer Onyx, 2024"
-        },
-        "kitsune": {
-          "title": "Guarani Kitsune",
-          "description": "Sandstein, 2024"
-        }
-      }
+      "next": "Nächste"
     },
     "contactForm": {
       "title": "ANFRAGE EINES ANGEBOTS",

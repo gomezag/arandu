@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import sculptures from '../sculptures';
-import CustomSlider from './CustomSlider';
+import PortfolioSlider from './PorfolioSlider';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
 
-  const heroSculptures = sculptures.filter(sculpture => sculpture.hero);
+  const heroSculptures = sculptures.filter(sculpture => sculpture.is_starred);
 
   return (
     <header className="relative h-screen overflow-hidden">
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
         <title>Arandu Ayala - Escultor</title>
       </Helmet>
       <div className="fixed inset-0 w-full h-full z-0">
-        <CustomSlider images={heroSculptures} />
+        <PortfolioSlider images={heroSculptures} />
       </div>
       <div className="absolute inset-0" />
       <div className="relative z-5 flex flex-col items-center justify-center h-full text-white px-4 text-center">

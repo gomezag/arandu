@@ -1,22 +1,19 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import ModalImage from './ModalImage';
+import PorftolioImage from './PortfolioImage';
+import sculptures from '../sculptures';
+import { Sculpture } from '../sculptures';
+import { SupportedLanguages } from './LanguageSwitcher';
 
-interface Sculpture {
-  key: string;
-  image: string;
-}
 
-interface PortfolioGridProps {
-  sculptures: Sculpture[];
-}
-
-const PortfolioGrid: React.FC<PortfolioGridProps> = ({ sculptures }) => {
+const PortfolioGrid = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const sculpturesPerPage = 3;
   const [displayedSculptures, setDisplayedSculptures] = useState<Sculpture[]>([]);
   const observer = useRef<IntersectionObserver | null>(null);
+  const { i18n } = useTranslation(); // Get i18n instance
+  const lang = i18n.language as SupportedLanguages;
 
   useEffect(() => {
     setDisplayedSculptures(sculptures.slice(0, sculpturesPerPage));
@@ -48,31 +45,31 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({ sculptures }) => {
           {displayedSculptures.map((sculpture, index) => {
             if (index === displayedSculptures.length - 1) {
               return (
-                <div key={sculpture.key} className="group relative" ref={lastSculptureElementRef}>
+                <div key={sculpture.sculpture_id} className="group relative" ref={lastSculptureElementRef}>
                   <div className="aspect-[3/4] overflow-hidden">
-                    <ModalImage 
+                    <PorftolioImage 
                       src={sculpture.image} 
-                      alt={t(`portfolio.sculptures.${sculpture.key}.title`)}
+                      alt={t(`portfolio.sculptures.${sculpture.sculpture_id}.title`)}
                     />
                   </div>
                   <div className="mt-4">
-                    <h3 className="text-xl font-light">{t(`portfolio.sculptures.${sculpture.key}.title`)}</h3>
-                    <p className="text-gray-600">{t(`portfolio.sculptures.${sculpture.key}.description`)}</p>
+                    <h3 className="text-xl font-light">{sculpture.title[lang]}</h3>
+                    <p className="text-gray-600">{sculpture.description[lang]}</p>
                   </div>
                 </div>
               );
             } else {
               return (
-                <div key={sculpture.key} className="group relative">
+                <div key={sculpture.sculpture_id} className="group relative">
                   <div className="aspect-[3/4] overflow-hidden">
-                    <ModalImage 
+                    <PorftolioImage 
                       src={sculpture.image}
-                      alt={t(`portfolio.sculptures.${sculpture.key}.title`)}
+                      alt={t(`portfolio.sculptures.${sculpture.sculpture_id}.title`)}
                     />
                   </div>
                   <div className="mt-4">
-                    <h3 className="text-xl font-light">{t(`portfolio.sculptures.${sculpture.key}.title`)}</h3>
-                    <p className="text-gray-600">{t(`portfolio.sculptures.${sculpture.key}.description`)}</p>
+                    <h3 className="text-xl font-light">{sculpture.title[lang]}</h3>
+                    <p className="text-gray-600">{sculpture.description[lang]}</p>
                   </div>
                 </div>
               );

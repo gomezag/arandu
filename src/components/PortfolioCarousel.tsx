@@ -59,7 +59,7 @@ export default function PortfolioCarousel({ sculptures }: PortfolioCarouselProps
         >
           {sculptures.map((sculpture, sculptureIndex) => (
             <div key={sculptureIndex} className="w-full flex-shrink-0">
-              <img src={sculpture.image} alt={`Sculpture ${sculptureIndex + 1}`} className="w-full rounded-lg shadow-lg object-cover" />
+              <img src={sculpture.image} alt={`Sculpture ${sculptureIndex + 1}`} className="w-full rounded-lg shadow-lg object-cover" loading="lazy"/>
             </div>
           ))}
         </div>

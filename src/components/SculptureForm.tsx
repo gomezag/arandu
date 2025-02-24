@@ -1,56 +1,88 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import siteStore from '../store/siteStore'; // Import the site store
+import { FaStar } from 'react-icons/fa';
+import { Sculpture, TranslationString } from '../sculptures';
+import { SupportedLanguages, languages } from './LanguageSwitcher';
 
 interface SculptureFormProps {
-  sculpture?: any; // Updated prop type
-  onFormSubmit: () => void;
+  sculpture?: Sculpture;
+  onFormSubmit: (message: string | null) => void;
+  onFormClean: () => void;
 }
 
-const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit }) => {
-  const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    sculptureId: '',
-    title: '',
-    description: '',
-    image: null as File | null,
-  });
-  const [popupMessage, setPopupMessage] = useState<string | null>(null);
+interface SculptureFormData {
+  sculptureId: string;
+  title: TranslationString | null;
+  description: TranslationString | null;
+  image: File | null;
+  is_starred: boolean;
+}
 
-  const closePopup = () => {
-    setPopupMessage(null);
-  };
+const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, onFormClean }) => {
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState<SculptureFormData>({
+    sculptureId: sculpture?.sculpture_id || '',
+    title: { es: '', en: '', de: '' },
+    description: { es: '', en: '', de: '' },
+    image:  null,
+    is_starred: sculpture?.is_starred ?? false, // Use nullish coalescing for booleans
+  });
+  const { i18n } = useTranslation();
+  const lang = i18n.language as SupportedLanguages;
 
   useEffect(() => {
     if (sculpture) {
       setFormData({
-        sculptureId: sculpture.sculptureId || '',
+        sculptureId: sculpture.sculpture_id || '',
         title: sculpture.title || '',
         description: sculpture.description || '',
-        image: null, // Image cannot be prefilled
+        image: null, // Image cannot be prefilled,
+        is_starred: sculpture.is_starred
       });
     }
   }, [sculpture]);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closePopup();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
-
+  const handleTranslatedChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const lang = e.target.dataset.lang as keyof TranslationString | undefined;
+    if (!lang) return; // Ensure lang is valid
+  
+    const { name, value } = e.target;
+    const fieldName = name.replace(`_${lang}`, "") as keyof Pick<SculptureFormData, "title" | "description">;
+  
+    setFormData((prevData) => ({
+      ...prevData,
+      [fieldName]: {
+        ...(prevData[fieldName] as TranslationString), // Explicitly cast as TranslationString
+        [lang]: value,
+      },
+    }));
+  };
+  
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+  };
+
+
+  const handleStar = (e: ChangeEvent<HTMLInputElement>) => {
+    const { checked } = e.target;
+    if(checked) {
+    setFormData((prevData) => ({
+      ...prevData,
+      is_starred: true,
+    }));
+  } else {
+    setFormData((prevData) => ({
+      ...prevData,
+      is_starred: false,
+    }));
+  }
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -66,10 +98,13 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit }
     e.preventDefault();
     const data = new FormData();
     data.append('sculpture_id', formData.sculptureId);
-    data.append('title', formData.title);
-    data.append('description', formData.description);
+    data.append('title', JSON.stringify(formData.title));
+    data.append('description', JSON.stringify(formData.description));
     if (formData.image) {
       data.append('image', formData.image);
+    }
+    if (formData.is_starred){
+      data.append('is_starred', 'true');
     }
 
     try {
@@ -82,64 +117,70 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit }
       });
       const result = await response;
       if (response.ok) {
-        setPopupMessage('Form submitted');
-        onFormSubmit(); // Refresh the sculpture list
+        onFormSubmit(t('upload.uploaded')); // Refresh the sculpture list
       } else {
         if (response.status === 498) {
           siteStore.clearToken();
-          setPopupMessage('Token expired');
+          onFormSubmit('Token expired');
 
         } else if (response.status === 401) {
           siteStore.clearToken();
-          setPopupMessage('Invalid token');
+          onFormSubmit('Invalid token');
         } else {
-          setPopupMessage(`Error submitting form: ${result}`);
+          onFormSubmit(`Error submitting form: ${result}`);
         }
       }
     } catch (error) {
-      setPopupMessage(`Error submitting form: ${error}`);
+      onFormSubmit(`Error submitting form: ${error}`);
     }
   };
 
   const clearForm = () => {
     setFormData({
       sculptureId: '',
-      title: '',
-      description: '',
+      title: null,
+      description: null,
       image: null,
-    });
+      is_starred: false,
+    })
     const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
     if (fileInput) {
       fileInput.value = '';
     }
+    onFormClean();
   };
 
   return (
     <div className="max-h-70 bg-stone-50">
       <section className="py-20 px-4 md:px-8 bg-stone-100">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-light mb-8">{t('upload.title')}</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <h2 className="text-3xl font-light mb-8">{t('upload.header')}</h2>
+          <form onSubmit={handleSubmit} className="space-y-4 max-h-96 overflow-y-auto">
             <label className="block text-left">
               {t('upload.sculptureId')}
               <input
-                type="text"
-                name="sculptureId"
-                placeholder="Sculpture ID"
-                value={formData.sculptureId}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mt-1"
-                required
+              type="text"
+              name="sculptureId"
+              placeholder="Sculpture ID"
+              value={formData.sculptureId}
+              onChange={handleChange}
+              className={`w-full p-2 border border-gray-300 rounded mt-1 ${sculpture ? 'bg-gray-200' : ''}`}
+              required
+              disabled={!!sculpture}
               />
             </label>
-            <label className="block text-left">
+            {languages.map((language, index)=>(
+              <div>
+                <h3> {language.name} </h3>
+              <label className="block text-left">
               {t('upload.title')}
               <input
                 type="text"
-                name="title"
+                name={"title_"+language.code}
+                data-lang={language.code}
                 placeholder="Title"
-                value={formData.title}
-                onChange={handleChange}
+                value={formData.title?.[language.code as SupportedLanguages] ?? ''}
+                onChange={handleTranslatedChange}
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 required
               />
@@ -147,14 +188,18 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit }
             <label className="block text-left">
               {t('upload.description')}
               <textarea
-                name="description"
+                name={"description_"+language.code}
+                data-lang={language.code}
                 placeholder="Description"
-                value={formData.description}
-                onChange={handleChange}
+                value={formData.description?.[language.code as SupportedLanguages] ?? ''}
+                onChange={handleTranslatedChange}
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 required
               />
             </label>
+            </div>
+            ))}
+            
             <label className="block text-left">
               {t('upload.image')}
               <input
@@ -162,6 +207,16 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit }
                 onChange={handleImageChange}
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 required={!sculpture}
+              />
+            </label>
+            <label className="block text-left">
+              <FaStar className="inline-block" />
+              <input
+                type="checkbox"
+                onChange={handleStar}
+                name="is_starred"
+                checked={formData.is_starred || false}
+                className="w-full p-2 border border-gray-300 rounded mt-1"
               />
             </label>
             <button
@@ -180,19 +235,6 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit }
           </form>
         </div>
       </section>
-      {popupMessage && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-md shadow-md text-center">
-            <p>{popupMessage}</p>
-            <button
-              onClick={closePopup}
-              className="mt-4 bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

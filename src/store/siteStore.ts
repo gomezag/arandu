@@ -24,6 +24,7 @@ class SiteStore {
   }
 
   setToken(token: string) {
+    this.token = token;
     sessionStorage.setItem('token', token);
   }
 

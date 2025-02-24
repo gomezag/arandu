@@ -16,7 +16,8 @@
     "description": "De tradición artesana, exploro en piedra y en metal la expresión abstracta de la cultura paraguaya. Con base en Asunción, Paraguay, mi trabajo se centra en la escultura de pequeño y mediano formato, con piezas en piedras recolectadas localmente."
   },
   "upload":{
-    "title": "Subir Archivo",
+    "header": "Subir Archivo",
+    "title": "Título",
     "sculptureId": "Id",
     "description": "Descripción",
     "image": "Imagen",
@@ -37,41 +38,7 @@
   "portfolio": {
     "title": "OBRAS",
     "previous": "Anterior",
-    "next": "Siguiente",
-    "sculptures": {
-      "equilibrio": {
-        "title": "En Equilibrio",
-        "description": "Arenisca blanca, rosada y amarilla, 2024"
-      },
-      "madreDeDos": {
-        "title": "Madre de dos",
-        "description": "Piedra Arenisca, 2024"
-      },
-      "dormision": {
-        "title": "La dormisión",
-        "description": "Piedra Arenisca, 2024"
-      },
-      "paternidad": {
-        "title": "Paternidad",
-        "description": "Piedra Arenisca, 2024"
-      },
-      "onirica": {
-        "title": "Onírica",
-        "description": "Mármol de carrara, 2024"
-      },
-      "pesebre": {
-        "title": "Pesebre",
-        "description": "Piedra Arenisca, 2024"
-      },
-      "sirena": {
-        "title": "Sirena",
-        "description": "Ónix azul, 2024"
-      },
-      "kitsune": {
-        "title": "Kitsune Guaraní",
-        "description": "Piedra Arenisca, 2024"
-      }
-    }
+    "next": "Siguiente"
   },
   "contactForm": {
     "title": "SOLICITA UN PRESUPUESTO",

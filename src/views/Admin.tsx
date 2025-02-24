@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
+import { FaPlus } from 'react-icons/fa';
 import Login from '../components/Login';
 import SculptureForm from '../components/SculptureForm';
 import SculptureList from '../components/SculptureList';
-import i18next from 'i18next';
 import siteStore from '../store/siteStore';
 import Layout from '../components/Layout';
 
+
 const Admin = () => {
-  const [language, setLanguage] = useState<string>(i18next.language);
   const [sculptures, setSculptures] = useState<any[]>([]);
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [popupMessage, setPopupMessage] = useState<string | null>(null);
   const [selectedSculpture, setSelectedSculpture] = useState<any>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!siteStore.token);
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
   const fetchSculptures = async () => {
     try {
@@ -20,6 +21,14 @@ const Admin = () => {
       setSculptures(data);
     } catch (error) {
       console.error('Error fetching sculptures', error);
+    }
+  };
+
+  const onFormSubmit = async (message: string | null) => {
+    setPopupMessage(message);
+    setIsLoggedIn(!!siteStore.token);
+    if(isLoggedIn){
+      fetchSculptures();
     }
   };
 
@@ -45,6 +54,16 @@ const Admin = () => {
 
   const handleSculptureClick = (sculpture: any) => {
     setSelectedSculpture(sculpture);
+    setIsFormOpen(true);
+  };
+
+  const openForm = () => {
+    setSelectedSculpture(null);
+    setIsFormOpen(true);
+  };
+
+  const closeForm = () => {
+    setIsFormOpen(false);
   };
 
   useEffect(() => {
@@ -68,31 +87,59 @@ const Admin = () => {
     };
   }, []);
 
+  const handleLogin = (message: string | null) => {
+    setPopupMessage(message);
+    setIsLoggedIn(!!siteStore.token);
+  };
+
+  const clearForm = async () => {
+    setSelectedSculpture(null);
+  };
+  
   return (
     <Layout>
-      <div className="flex">
-        <div className="w-1/4 h-screen overflow-y-auto">
-          <SculptureList sculptures={sculptures} onDelete={deleteSculpture} onSculptureClick={handleSculptureClick} />
-        </div>
-        <div className="w-3/4 p-4 fixed right-0 h-screen overflow-y-auto">
-          {siteStore.token ? (
-            <SculptureForm sculpture={selectedSculpture} onFormSubmit={fetchSculptures} />
-          ) : (
-            <Login onLogin={setLoggedIn} />
-          )}
-        </div>
-        {popupMessage && (
+      <div className="flex flex-col h-screen w-screen">
+        {isLoggedIn ? (
+          <div className="flex-1 overflow-y-auto">
+            <SculptureList sculptures={sculptures} onDelete={deleteSculpture} onSculptureClick={handleSculptureClick} />
+          </div>
+        ):
+        <Login onLogin={ handleLogin }></Login>
+       }
+        {isFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-8 rounded-md shadow-md text-center">
-              <p>{popupMessage}</p>
+            <div className="relative bg-white p-8 rounded-md shadow-md text-center m-5">
               <button
-                onClick={closePopup}
-                className="mt-4 bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                onClick={closeForm}
+                className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none"
               >
-                Close
+                &times;
               </button>
+              <SculptureForm sculpture={selectedSculpture} onFormSubmit={onFormSubmit} onFormClean={clearForm} />
             </div>
           </div>
+        )}
+        {popupMessage && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="relative bg-white p-8 rounded-md shadow-md text-center"
+                 >
+              <button
+                onClick={closePopup}
+                className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none close-button"
+              >
+                &times;
+              </button>
+              <p>{popupMessage}</p>
+            </div>
+          </div>
+        )}
+        {isLoggedIn && (
+          <button
+            onClick={openForm}
+            className="fixed bottom-4 right-4 bg-green-600 text-white p-10 rounded-full shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          >
+            <FaPlus />
+          </button>
         )}
       </div>
     </Layout>

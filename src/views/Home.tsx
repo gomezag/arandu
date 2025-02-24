@@ -2,12 +2,9 @@ import { siInstagram, siWhatsapp, siGmail } from 'simple-icons';
 import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
-import PortfolioCarousel from '../components/PortfolioCarousel';
-import sculptures from '../sculptures';
 
 const Home = () => {
   const { t } = useTranslation();
-  const heroSculptures = sculptures.filter(sculpture => sculpture.hero);
 
   return (
     <Layout>

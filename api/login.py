@@ -14,15 +14,13 @@ class handler(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
         data = json.loads(post_data)
-        print(data)
-        print(PASSWORD)
         password = data.get('password')
         if password != PASSWORD:
             self.send_response(401)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps({'error': 'Invalid password'}).encode('utf-8'))
-            return
+            return  # Add return here to prevent further writes
 
         payload = {
             'exp': datetime.utcnow() + timedelta(hours=1),
@@ -34,3 +32,4 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'application/json')
         self.end_headers()
         self.wfile.write(json.dumps({'token': token}).encode('utf-8'))
+        return  # Add return here to prevent further writes

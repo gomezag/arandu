@@ -2,14 +2,16 @@ import React from 'react';
 import i18next from 'i18next';
 import { FaGlobe } from 'react-icons/fa';
 
-const languages = [
+export const languages = [
   { code: 'es', name: 'Español' },
   { code: 'en', name: 'English' },
   { code: 'de', name: 'Deutsch' }
 ];
 
+export type SupportedLanguages = "es" | "en" | "de";
+
 interface LanguageSwitcherProps {
-  language: string;
+  language: SupportedLanguages;
   setLanguage: (language: string) => void;
 }
 

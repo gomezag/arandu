@@ -16,7 +16,8 @@
     "description": "From a tradition of craftsmanship, I explore the expression of Paraguayan culture in stone and metal. Based in Asunción, Paraguay, my work focuses on small and medium format sculpture, with pieces in locally sourced stones."
   },
   "upload": {
-    "title": "Upload File",
+    "header": "Upload File",
+    "title": "Title",
     "sculptureId": "Id",
     "description": "Description",
     "image": "Image",
@@ -37,41 +38,7 @@
   "portfolio": {
     "title": "WORKS",
     "previous": "Previous",
-    "next": "Next",
-    "sculptures": {
-      "equilibrio": {
-        "title": "In balance",
-        "description": "White, pink, and yellow sandstone, 2024"
-      },
-      "madreDeDos": {
-        "title": "Mother of two",
-        "description": "Sandstone, 2024"
-      },
-      "dormision": {
-        "title": "The sleepiness",
-        "description": "Sandstone, 2024"
-      },
-      "paternidad": {
-        "title": "Fatherhood",
-        "description": "Sandstone, 2024"
-      },
-      "onirica": {
-        "title": "Oneiric",
-        "description": "Carrara marble, 2024"
-      },
-      "pesebre": {
-        "title": "Nativity scene",
-        "description": "Sandstone, 2024"
-      },
-      "sirena": {
-        "title": "Siren",
-        "description": "Blue onyx, 2024"
-      },
-      "kitsune": {
-        "title": "Guarani Kitsune",
-        "description": "Sandstone, 2024"
-      }
-    }
+    "next": "Next"
   },
   "contactForm": {
     "title": "REQUEST A QUOTE",

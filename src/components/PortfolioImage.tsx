@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-interface ModalImageProps {
+interface PortfolioImageProps {
   src: string;
   alt: string;
   standardWidth?: string;
   standardHeight?: string;
 }
 
-const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth = '100%', standardHeight = 'auto' }) => {
+const PorftolioImage: React.FC<PortfolioImageProps> = ({ src, alt, standardWidth = '100%', standardHeight = 'auto' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const inputRef = useRef(null);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-
+  useEffect(() => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {setImageSrc(img.src)};
+  }, []);
+  
+  
+  
   return (
     <div>
       {/* Thumbnail */}
@@ -22,12 +31,16 @@ const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth = '100%
         style={{ width: standardWidth, height: standardHeight }}
         onClick={openModal}
       >
-        <img
-          src={src}
+      {imageSrc ? (
+        <img 
+          src={imageSrc}
           alt={alt}
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
-        />
+          ref={ inputRef }
+        />) : (
+          <p>Loading image...</p>
+        )}
       </div>
 
       {/* Modal */}
@@ -43,8 +56,15 @@ const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth = '100%
             >
               &times;
             </button>
-            <img src={src} alt={alt} className="max-w-[80vw] max-h-[80vh] w-full h-auto object-contain" 
-            loading="lazy" />
+            {imageSrc ? (
+              <img 
+                src={imageSrc}
+                alt={alt}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />) : (
+                <p>Loading image...</p>
+            )}
           </div>
         </div>
       )}
@@ -52,11 +72,11 @@ const ModalImage: React.FC<ModalImageProps> = ({ src, alt, standardWidth = '100%
   );
 };
 
-ModalImage.propTypes = {
+PorftolioImage.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   standardWidth: PropTypes.string,
   standardHeight: PropTypes.string,
 };
 
-export default ModalImage;
+export default PorftolioImage;
