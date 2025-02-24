@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import sculptures from '../sculptures';
+import sculpturesPromise, { Sculpture } from '../sculptures';
 import PortfolioSlider from './PorfolioSlider';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
+  const [sculptures, setSculptures] = useState<Sculpture[]>([]);
+
+  useEffect(() => {
+    async function loadData() {
+      const data = await sculpturesPromise; // Await here inside useEffect
+      setSculptures(data);
+    }
+    loadData();
+  }, []);
 
   const heroSculptures = sculptures.filter(sculpture => sculpture.is_starred);
 

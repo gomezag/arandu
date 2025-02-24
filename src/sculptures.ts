@@ -26,6 +26,6 @@ async function fetchSculptures(): Promise<Sculpture[]> {
     }
 }
 
-const sculptures: Sculpture[] = await fetchSculptures();
+const sculpturesPromise: Promise<Sculpture[]> = fetchSculptures();
 
-export default sculptures;
+export default sculpturesPromise;

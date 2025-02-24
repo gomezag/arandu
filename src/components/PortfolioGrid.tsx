@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import PorftolioImage from './PortfolioImage';
-import sculptures from '../sculptures';
+import sculpturesPromise from '../sculptures';
 import { Sculpture } from '../sculptures';
 import { SupportedLanguages } from './LanguageSwitcher';
 
@@ -14,7 +14,16 @@ const PortfolioGrid = () => {
   const observer = useRef<IntersectionObserver | null>(null);
   const { i18n } = useTranslation(); // Get i18n instance
   const lang = i18n.language as SupportedLanguages;
+  const [sculptures, setSculptures] = useState<Sculpture[]>([]);
 
+  useEffect(() => {
+    async function loadData() {
+      const data = await sculpturesPromise; // Await here inside useEffect
+      setSculptures(data);
+    }
+    loadData();
+  }, []);
+  
   useEffect(() => {
     setDisplayedSculptures(sculptures.slice(0, sculpturesPerPage));
   }, [sculptures]);
