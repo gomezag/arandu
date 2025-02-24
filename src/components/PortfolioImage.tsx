@@ -39,7 +39,9 @@ const PorftolioImage: React.FC<PortfolioImageProps> = ({ src, alt, standardWidth
           loading="lazy"
           ref={ inputRef }
         />) : (
-          <p>Loading image...</p>
+          <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-gray-500"></div>
+          </div>
         )}
       </div>
 
