@@ -15,6 +15,7 @@ interface SculptureFormData {
   sculptureId: string;
   title: TranslationString | null;
   description: TranslationString | null;
+  excerpt: TranslationString | null;
   image: File | null;
   is_starred: boolean;
 }
@@ -25,6 +26,7 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
     sculptureId: sculpture?.sculpture_id || '',
     title: { es: '', en: '', de: '' },
     description: { es: '', en: '', de: '' },
+    excerpt: { es: '', en: '', de: '' },
     image:  null,
     is_starred: sculpture?.is_starred ?? false, // Use nullish coalescing for booleans
   });
@@ -35,8 +37,9 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
     if (sculpture) {
       setFormData({
         sculptureId: sculpture.sculpture_id || '',
-        title: sculpture.title || '',
-        description: sculpture.description || '',
+        title: sculpture.title || { es: '', en: '', de: '' },
+        description: sculpture.description || { es: '', en: '', de: '' },
+        excerpt: sculpture.excerpt || { es: '', en: '', de: '' },
         image: null, // Image cannot be prefilled,
         is_starred: sculpture.is_starred
       });
@@ -50,7 +53,7 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
     if (!lang) return; // Ensure lang is valid
   
     const { name, value } = e.target;
-    const fieldName = name.replace(`_${lang}`, "") as keyof Pick<SculptureFormData, "title" | "description">;
+    const fieldName = name.replace(`_${lang}`, "") as keyof Pick<SculptureFormData, "title" | "description" >;
   
     setFormData((prevData) => ({
       ...prevData,
@@ -83,6 +86,7 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
       is_starred: false,
     }));
   }
+  console.log(formData);
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -100,13 +104,13 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
     data.append('sculpture_id', formData.sculptureId);
     data.append('title', JSON.stringify(formData.title));
     data.append('description', JSON.stringify(formData.description));
+    data.append('excerpt', JSON.stringify(formData.excerpt));
     if (formData.image) {
       data.append('image', formData.image);
     }
     if (formData.is_starred){
       data.append('is_starred', 'true');
     }
-
     try {
       const response = await fetch('/api/sculptures', {
         method: 'POST',
@@ -140,6 +144,7 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
       sculptureId: '',
       title: null,
       description: null,
+      excerpt: null,
       image: null,
       is_starred: false,
     })
@@ -170,7 +175,8 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
               />
             </label>
             {languages.map((language, index)=>(
-              <div>
+              <div
+                key={"key_"+language.code}>
                 <h3> {language.name} </h3>
               <label className="block text-left">
               {t('upload.title')}
@@ -192,6 +198,18 @@ const SculptureForm: React.FC<SculptureFormProps> = ({ sculpture, onFormSubmit, 
                 data-lang={language.code}
                 placeholder="Description"
                 value={formData.description?.[language.code as SupportedLanguages] ?? ''}
+                onChange={handleTranslatedChange}
+                className="w-full p-2 border border-gray-300 rounded mt-1"
+                required
+              />
+            </label>
+            <label className="block text-left">
+              {'Excerpt'}
+              <textarea
+                name={"excerpt_"+language.code}
+                data-lang={language.code}
+                placeholder="Excerpt"
+                value={formData.excerpt?.[language.code as SupportedLanguages] ?? ''}
                 onChange={handleTranslatedChange}
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 required

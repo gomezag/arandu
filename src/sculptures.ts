@@ -13,6 +13,7 @@ export interface Sculpture {
   is_starred: boolean;
   title: TranslationString;
   description: TranslationString;
+  excerpt: TranslationString;
 }
 
 

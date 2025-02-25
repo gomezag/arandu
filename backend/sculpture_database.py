@@ -21,6 +21,7 @@ class SculptureData:
     image: str
     title: TranslationString
     description: TranslationString
+    excerpt: TranslationString
     is_starred: bool
 
 class SculptureDatabase:
@@ -44,6 +45,7 @@ class SculptureDatabase:
         metadata = {
             'title': asdict(sculpture_data.title),
             'description': asdict(sculpture_data.description),
+            'excerpt': asdict(sculpture_data.excerpt),
             'is_starred': sculpture_data.is_starred
         }
         # Upload metadata to S3
@@ -65,6 +67,7 @@ class SculptureDatabase:
             'image': image_url,
             'title': metadata.get('title', TranslationString),
             'description': metadata.get('description', TranslationString),
+            'excerpt': metadata.get('excerpt', TranslationString),
             'is_starred': metadata.get('is_starred', False)
         })
         return r

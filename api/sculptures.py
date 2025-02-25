@@ -47,6 +47,7 @@ class handler(BaseHTTPRequestHandler):
                     sculpture_id = fields.get('sculpture_id')[0]
                     title = json.loads(fields.get('title')[0])
                     description = json.loads(fields.get('description')[0])
+                    excerpt = json.loads(fields.get('excerpt')[0])
                     image = fields.get('image')
                     image_path = None
                     if(image):
@@ -59,6 +60,7 @@ class handler(BaseHTTPRequestHandler):
                         image=image_path, 
                         title=TranslationString(**title), 
                         description=TranslationString(**description),
+                        excerpt=TranslationString(**excerpt),
                         is_starred=fields.get('is_starred'))
                 except Exception as e:
                     self.send_response(500, "Error parsing the form", repr(e))
